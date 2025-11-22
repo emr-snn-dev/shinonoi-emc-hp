@@ -1,0 +1,205 @@
+/* style.css の全コード */
+
+/* 1. 基本設定：見やすいフォントとリセット */
+body {
+    font-family: 'メイリオ', Meiryo, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* 明るい背景 */
+    color: #333;
+    text-align: center; /* 全体を中央寄せ */
+}
+
+/* 2. ヘッダーの調整：濃い青色で技術力を表現 */
+header {
+    background-color: #002a5c; /* 濃い、技術的な青 */
+    color: white;
+    padding: 1.5em 0; /* 少しパディングを増やす */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつけて立体感を出す */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+/* 3. コンテンツエリア：中央寄せを維持しつつ幅を調整 */
+main {
+    max-width: 900px;
+    margin: 30px auto; /* 中央寄せと上下の余白を増やす */
+    padding: 0 20px;
+    text-align: left; /* コンテンツの中身は左寄せに戻す */
+}
+
+/* 4. ヒーローセクションの強調（index.html用） */
+#hero {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-bottom: 5px solid #ff4500; /* スピード感のあるオレンジ色をアクセントに */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#hero h1 {
+    color: #002a5c;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+#hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* 5. セクション見出しの調整 */
+#about h2, #news h2 {
+    color: #009900; /* エコな緑色 */
+    border-bottom: 2px solid #009900;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* 6. お知らせエリアの装飾 */
+#news article {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 5px solid #002a5c; /* アクセントライン */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* 7. フッターの調整 */
+footer {
+    background-color: #333;
+    color: #ddd;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* --- challenges.html 専用のスタイル --- */
+
+main h1 {
+    color: #0044aa;
+    text-align: center;
+    border-bottom: 2px solid #0044aa;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+/* 競技統合セクション */
+#eco-challenge-combined {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+#eco-challenge-combined h2 {
+    color: #002a5c;
+    border-bottom: 2px dashed #ff4500; /* スピード感のあるアクセント */
+    padding-bottom: 10px;
+}
+
+/* 画像プレースホルダー */
+.image-placeholder {
+    height: 200px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 200px;
+    color: #666;
+    margin-top: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+}
+
+/* 活動実績セクション (achievements) の装飾 */
+#achievements {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f0f8ff; /* 薄い青の背景色 */
+    border-radius: 8px;
+    border: 1px solid #cceeff;
+}
+
+#achievements h2 {
+    color: #0044aa;
+    border-bottom: 3px double #0044aa;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.achievement-year {
+    margin-bottom: 20px;
+    border-left: 5px solid #009900;
+    padding-left: 15px;
+}
+
+.achievement-year h3 {
+    color: #333;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.achievement-year ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+/* --- お知らせアニメーション用CSS --- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.news-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(20px);
+}
+
+.news-item.is-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 新規追加: 日付表示エリアのスタイル（修正） --- */
+#date-display {
+    max-width: 900px;
+    margin: 10px auto 0;
+    padding: 0 20px;
+    text-align: right;
+    
+    /* 確実に表示される色とフォントを設定 */
+    color: #555; /* 暗めのグレー */
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+#date-display #current-date {
+    font-weight: bold;
+    color: #002a5c; /* クラブのテーマカラー（濃い青） */
+}
