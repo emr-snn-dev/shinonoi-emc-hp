@@ -1,0 +1,12 @@
+# GitLab Pagesのための最小限の設定ファイル
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
