@@ -1,13 +1,33 @@
 /* script.js の全コード */
 
+// ==========================================================
+// 1. 日付表示機能
+// ==========================================================
+function updateDate() {
+    const dateElement = document.getElementById('current-date');
+    if (dateElement) {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const day = now.getDate();
+        
+        // フォーマットを「YYYY年MM月DD日」に設定
+        dateElement.textContent = `${year}年${month}月${day}日`;
+    }
+}
+
+// ==========================================================
+// 2. ページ読み込み時の初期処理 (ニュース読み込みと日付更新)
+// ==========================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // 日付を更新
+    updateDate(); 
+
     // ニュースコンテンツを読み込むエリア
     const newsContainer = document.getElementById('news-list-container');
     
     if (newsContainer) {
-        newsContainer.innerHTML = '<p>最新情報を読み込み中...</p>'; // 読み込み中のメッセージを設定
-        
-        // ニュースファイル（news_content.html）のパスを指定
+        newsContainer.innerHTML = '<p>最新情報を読み込み中...</p>';
         const newsFileUrl = 'news_content.html'; 
 
         fetch(newsFileUrl)
