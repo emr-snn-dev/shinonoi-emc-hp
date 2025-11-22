@@ -1,22 +1,28 @@
-/* style.css の全コード */
+/* style.css の全コード（レスポンシブ・カラー強化版） */
 
-/* 1. 基本設定：見やすいフォントとリセット */
+/* --- カラーパレット --- */
+/* Primary: #002a5c (濃い技術的な青) */
+/* Secondary: #009900 (エコの緑) */
+/* Accent: #ff4500 (スピード感のあるオレンジ) */
+/* Background: #f7f9fc (薄い青みがかった背景) */
+
+/* 1. 基本設定 */
 body {
     font-family: 'メイリオ', Meiryo, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8; /* 明るい背景 */
+    background-color: #f7f9fc; /* 薄い青みがかった背景 */
     color: #333;
-    text-align: center; /* 全体を中央寄せ */
+    text-align: center;
 }
 
-/* 2. ヘッダーの調整：濃い青色で技術力を表現 */
+/* 2. ヘッダーとナビゲーション */
 header {
-    background-color: #002a5c; /* 濃い、技術的な青 */
+    background-color: #002a5c;
     color: white;
-    padding: 1.5em 0; /* 少しパディングを増やす */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつけて立体感を出す */
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 nav ul {
@@ -29,140 +35,163 @@ nav ul {
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 0 15px;
+    padding: 10px 20px;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-/* 3. コンテンツエリア：中央寄せを維持しつつ幅を調整 */
-main {
+nav ul li a:hover {
+    background-color: #ff4500; /* ホバーでアクセントカラー */
+}
+
+/* 3. 日付表示エリア */
+#date-display {
     max-width: 900px;
-    margin: 30px auto; /* 中央寄せと上下の余白を増やす */
+    margin: 15px auto 0; /* マージンを調整 */
     padding: 0 20px;
-    text-align: left; /* コンテンツの中身は左寄せに戻す */
+    text-align: right;
+    color: #555;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0; /* 薄い線で区切る */
 }
 
-/* 4. ヒーローセクションの強調（index.html用） */
+#date-display #current-date {
+    font-weight: bold;
+    color: #002a5c;
+}
+
+/* 4. メインコンテンツエリア */
+main {
+    max-width: 960px; /* 少し幅を広げる */
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+/* 5. ヒーローセクション（トップページ） */
 #hero {
     background-color: white;
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border-bottom: 5px solid #ff4500; /* スピード感のあるオレンジ色をアクセントに */
+    padding: 50px 30px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    border-left: 8px solid #ff4500; /* モダンなアクセントライン */
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 #hero h1 {
     color: #002a5c;
-    font-size: 2.8em;
-    margin-bottom: 10px;
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1.2;
 }
 #hero p {
-    font-size: 1.2em;
+    font-size: 1.4em; /* 大きめに */
     color: #555;
 }
 
-/* 5. セクション見出しの調整 */
-#about h2, #news h2 {
-    color: #009900; /* エコな緑色 */
-    border-bottom: 2px solid #009900;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-/* 6. お知らせエリアの装飾 */
-#news article {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 5px solid #002a5c; /* アクセントライン */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-}
-
-/* 7. フッターの調整 */
-footer {
-    background-color: #333;
-    color: #ddd;
-    text-align: center;
-    padding: 15px 0;
+/* 6. セクション共通の見出し */
+h2 {
+    color: #009900;
+    border-bottom: 3px solid #009900;
+    padding-bottom: 8px;
     margin-top: 40px;
-    font-size: 0.9em;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* 7. お知らせエリアのカードデザイン */
+#news article {
+    /* news-item クラスにも適用される */
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 6px solid #002a5c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* 立体感 */
+    transition: transform 0.2s;
+}
+
+#news article:hover {
+    transform: translateY(-3px); /* ホバーで少し浮き上がらせる */
+}
+#news h3 {
+    color: #002a5c;
+    margin-top: 0;
 }
 
 /* --- challenges.html 専用のスタイル --- */
 
-main h1 {
-    color: #0044aa;
-    text-align: center;
-    border-bottom: 2px solid #0044aa;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
-}
-
-/* 競技統合セクション */
+/* 8. 競技統合セクション (カードデザイン) */
 #eco-challenge-combined {
     background-color: white;
-    padding: 25px;
+    padding: 30px;
     margin-bottom: 30px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 #eco-challenge-combined h2 {
     color: #002a5c;
-    border-bottom: 2px dashed #ff4500; /* スピード感のあるアクセント */
+    border-bottom: 3px dashed #ff4500;
     padding-bottom: 10px;
 }
 
-/* 画像プレースホルダー */
+/* 9. 画像プレースホルダー */
 .image-placeholder {
-    height: 200px;
-    background-color: #eee;
+    height: 250px; /* サイズを大きく */
+    background-color: #e0e6ed;
     text-align: center;
-    line-height: 200px;
+    line-height: 250px;
     color: #666;
-    margin-top: 15px;
-    border: 1px dashed #ccc;
-    border-radius: 5px;
+    margin-top: 20px;
+    border: 2px dashed #aab5c2;
+    border-radius: 8px;
+    font-size: 1.1em;
 }
 
-/* 活動実績セクション (achievements) の装飾 */
+/* 10. 活動実績セクション (強調デザイン) */
 #achievements {
     margin-top: 50px;
     padding: 30px;
-    background-color: #f0f8ff; /* 薄い青の背景色 */
-    border-radius: 8px;
-    border: 1px solid #cceeff;
-}
-
-#achievements h2 {
-    color: #0044aa;
-    border-bottom: 3px double #0044aa;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    background-color: #f0f8ff; 
+    border-radius: 10px;
+    border: 2px solid #cceeff;
 }
 
 .achievement-year {
-    margin-bottom: 20px;
-    border-left: 5px solid #009900;
-    padding-left: 15px;
+    margin-bottom: 25px;
+    border-left: 6px solid #009900;
+    padding-left: 20px;
+    background-color: white; /* 実績記事にも背景を */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 4px;
 }
 
 .achievement-year h3 {
-    color: #333;
-    font-size: 1.3em;
-    margin-top: 0;
-    margin-bottom: 10px;
+    color: #0044aa;
 }
 
-.achievement-year ul {
-    list-style: square;
-    padding-left: 20px;
+/* 11. フッター */
+footer {
+    background-color: #333;
+    color: #ddd;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+footer a {
+    color: #ff4500; /* メールアドレスをアクセントカラーに */
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
 }
 
-/* --- お知らせアニメーション用CSS --- */
-
+/* --- アニメーション用CSS (変更なし) --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -185,21 +214,52 @@ main h1 {
     transform: translateY(0);
 }
 
-/* --- 新規追加: 日付表示エリアのスタイル（修正） --- */
-#date-display {
-    max-width: 900px;
-    margin: 10px auto 0;
-    padding: 0 20px;
-    text-align: right;
-    
-    /* 確実に表示される色とフォントを設定 */
-    color: #555; /* 暗めのグレー */
-    font-size: 0.9em;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
-}
+/* ========================================= */
+/* 12. 🌐 レスポンシブ対応 (メディアクエリ) */
+/* ========================================= */
 
-#date-display #current-date {
-    font-weight: bold;
-    color: #002a5c; /* クラブのテーマカラー（濃い青） */
+/* スマートフォン (画面幅 600px以下) */
+@media (max-width: 600px) {
+    /* 全体のパディング調整 */
+    main {
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+
+    /* ヘッダーとナビゲーションの調整 */
+    header {
+        padding: 10px 0;
+    }
+    nav ul {
+        flex-direction: column; /* ナビゲーションを縦に並べる */
+        gap: 5px;
+    }
+    nav ul li a {
+        padding: 5px 10px;
+        display: block;
+        font-size: 0.9em;
+    }
+
+    /* ヒーローセクションの文字サイズ調整 */
+    #hero {
+        padding: 30px 15px;
+        margin-bottom: 20px;
+    }
+    #hero h1 {
+        font-size: 2em;
+    }
+    #hero p {
+        font-size: 1.1em;
+    }
+
+    /* 競技セクションのパディング調整 */
+    #eco-challenge-combined, #achievements {
+        padding: 20px;
+    }
+    
+    /* 画像プレースホルダーの高さ調整 */
+    .image-placeholder {
+        height: 150px;
+        line-height: 150px;
+    }
 }
