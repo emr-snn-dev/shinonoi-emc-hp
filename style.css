@@ -1,4 +1,4 @@
-/* style.css の全コード（レスポンシブ・カラー強化版） */
+/* style.css の全コード（最終版） */
 
 /* --- カラーパレット --- */
 /* Primary: #002a5c (濃い技術的な青) */
@@ -138,19 +138,6 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* 9. 画像プレースホルダー */
-.image-placeholder {
-    height: 250px; /* サイズを大きく */
-    background-color: #e0e6ed;
-    text-align: center;
-    line-height: 250px;
-    color: #666;
-    margin-top: 20px;
-    border: 2px dashed #aab5c2;
-    border-radius: 8px;
-    font-size: 1.1em;
-}
-
 /* 10. 活動実績セクション (強調デザイン) */
 #achievements {
     margin-top: 50px;
@@ -174,6 +161,36 @@ h2 {
     color: #0044aa;
 }
 
+/* --- machine.html 専用のスタイル --- */
+#machine-ev, #machine-gasoline {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#machine-ev h2 {
+    color: #002a5c; /* 青 */
+}
+
+#machine-gasoline h2 {
+    color: #ff4500; /* オレンジ */
+}
+
+/* マシン紹介ページの画像プレースホルダー */
+.machine-photo-placeholder {
+    height: 200px;
+    background-color: #e0e6ed;
+    text-align: center;
+    line-height: 200px;
+    color: #666;
+    margin: 20px 0;
+    border: 2px dashed #aab5c2;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
 /* 11. フッター */
 footer {
     background-color: #333;
@@ -191,7 +208,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* --- アニメーション用CSS (変更なし) --- */
+/* --- アニメーション用CSS --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -213,6 +230,43 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- 画像表示の最適化 --- */
+.image-container {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* --- 汎用的なボタンのスタイル（404ページ用にも利用） --- */
+.button-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #009900;
+    color: white !important; /* 強制的に白文字に */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    border: none;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: #007700;
+    transform: translateY(-1px);
+}
+
 
 /* ========================================= */
 /* 12. 🌐 レスポンシブ対応 (メディアクエリ) */
@@ -257,9 +311,20 @@ footer a:hover {
         padding: 20px;
     }
     
-    /* 画像プレースホルダーの高さ調整 */
-    .image-placeholder {
+    /* マシン紹介のプレースホルダー高さ調整 */
+    .machine-photo-placeholder {
         height: 150px;
         line-height: 150px;
+    }
+
+    /* 404ページの調整 */
+    #error-container {
+        padding: 20px !important;
+    }
+    #error-container h1 {
+        font-size: 2.5em !important;
+    }
+    #error-container h2 {
+        font-size: 1.3em !important;
     }
 }
