@@ -1,0 +1,21 @@
+# admin/config.yml
+
+backend:
+  name: git-gateway # Netlify Identityと連携
+  repo: emr-snn-dev/shinonoi-emc-hp # ★★★ あなたのリポジトリ名に一致しています
+  branch: main # メインのブランチ名
+
+media_folder: "images/uploads" # 画像ファイルを保存する場所 (プロジェクトフォルダ直下からのパス)
+public_folder: "/images/uploads" # ウェブサイトからのアクセスパス
+
+collections:
+  - name: "news"
+    label: "📢 お知らせ記事"
+    folder: "_posts/news" # 記事データを保存するフォルダ (GitHubに作成される)
+    create: true # 新規作成を許可
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}" # ファイル名の形式
+    fields:
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "投稿日", name: "date", widget: "datetime"}
+      - {label: "カテゴリ", name: "category", widget: "select", options: ["大会", "募集", "練習", "技術"]}
+      - {label: "本文", name: "body", widget: "markdown"}

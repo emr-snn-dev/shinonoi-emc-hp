@@ -1,0 +1,4 @@
+# _redirects
+
+# Netlify IdentityとCMSに必要な設定
+/admin/* /admin/index.html 200
